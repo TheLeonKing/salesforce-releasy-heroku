@@ -1,0 +1,50 @@
+{
+  "name": "Salesforce Releasy Heroku",
+  "description": "The Heroku version of Releasy, used only for scheduled Deployment Update emails and updating the Components tab on the manifest.",
+  "repository": "https://github.com/TheLeonKing/salesforce-releasy-heroku",
+  "logo": "https://i.imgur.com/TLs9Y8Z.png",
+  "keywords": ["salesforce", "sfdx", "release management", "deployment"],
+  "addons": [ "scheduler" ],
+  "buildpacks": [
+    { "url": "heroku/python" },
+    { "url": "https://github.com/heroku/salesforce-cli-buildpack" }
+  ],
+  "env": {
+    "DEFAULT_SOURCE_ORG": {
+      "description": "SFDX alias of your source org"
+    },
+    "MD_API_VERSION": {
+      "value": "44.0"
+    },
+    "GOOGLE_SHEET_CREDENTIALS": {
+      "description": "Contents of your credentials.json file"
+    },
+    "SHEET_KEY": {
+      "description": "Found in the sheet's URL"
+    },
+    "FROM_MAIL": {
+      "description": "Email address you want to send the Deployment Updates from"
+    },
+    "FROM_NAME": {
+      "description": "Name associated to sender email address"
+    },
+    "SMTP_SERVER": {
+      "description": "E.g. mail.yourdomain.com"
+    },
+    "SMTP_PORT": {
+      "description": "Usually 587"
+    },
+    "SMTP_PASS": {
+      "description": "Password of your SMPT server"
+    },
+    "SF_USER": {
+      "description": "Username of a Salesforce user in your source org with Setup access"
+    },
+    "SF_PASS": {
+      "description": "Password of the source org user"
+    },
+    "SF_TOKEN": {
+      "description": "Security token of the source org user"
+    }
+  }
+}
