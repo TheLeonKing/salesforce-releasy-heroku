@@ -102,7 +102,7 @@ class Helper:
             try:
                 if len(err) > 0:
                     Logger.log.error('COMMAND FAILED WITH RETURN CODE ' + str(return_code))
-                    err = json.loads(err.splitlines()[0])
+                    err = json.loads(err)
                     if 'name' in err and err['name'] == 'mdapiDeployFailed': return err
                     elif 'stack' in err and 'ERROR_HTTP_400' in err['stack']:
                         errors = json.loads(err['stack'].replace('ERROR_HTTP_400: ', '').splitlines()[0])['results']
